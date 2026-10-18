@@ -130,8 +130,9 @@ snow_plot =
   ) |>
   ggplot(
     aes(
-      x = factor(year),
-      y = snow
+      x = year,
+      y = snow,
+      group = year
     )
   ) +
   geom_boxplot() +
@@ -139,12 +140,11 @@ snow_plot =
     x = "Year",
     y = "Snowfall (mm)",
     title = "Snowfall Distribution by Year"
-  ) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  ) 
 ```
 
 Combine these two plots:
-```{r}
+```{r, fig.width=16, fig.height=7}
 tmax_tmin_plot + snow_plot
 ```
 
